@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sneaker Post</title>
+<link rel="stylesheet" href="mycollection.css">
+
+<body>
+<h1>Sneaker Collection</h1>
+<p>Post your amazing collection by uploading a file below:</p>    
+<form id="upload-form">
+<input type="file" id="photo-input" accept="image">
+<button type="submit"> Post photo</button>
+</form>
+    
+<h2>Your Sneaker Collection</h2>
+<div id="photo-gallery"></div>
+    
+<script>
+const form = document.getElementById('upload-form');
+const gallery = document.getElementById('photo-gallery');
+form.addEventListener('submit', (e)
+{e.preventDefault();const input = document.getElementById('photo-input');
+  const file = input.files[0];
+ if (file){const reader = new FileReader();reader.onload = function(e) 
+{const img = document.createElement('img');
+  img.src = e.target.result;
+  img.style.width = '150px';
+  img.style.margin = '10px';
+  gallery.appendChild(img);}
+  reader.readAsDataURL(file);}
+</script>
+</body>
+</html>
